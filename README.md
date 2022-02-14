@@ -54,6 +54,12 @@ df.describe()
     #### plt.title(i)
     #### plt.show()
  ![image](https://user-images.githubusercontent.com/48388697/153887040-06246cdc-e295-4cbc-860e-5bd6a220b2e3.png)
+ ![image](https://user-images.githubusercontent.com/48388697/153887508-4258b752-de34-4d7d-b48c-2101f8928428.png)
+![image](https://user-images.githubusercontent.com/48388697/153887539-97fda65c-b6a5-468d-8cf3-da1d80e692da.png)
+![image](https://user-images.githubusercontent.com/48388697/153887569-e62d3ba7-bf01-4b05-bc59-c4d4bf5e70bc.png)
+![image](https://user-images.githubusercontent.com/48388697/153887588-d26a2315-c3c5-49d6-bb0c-990aa183473a.png)
+![image](https://user-images.githubusercontent.com/48388697/153887607-d5d10db9-6d0f-4e2e-8a52-928e637393ea.png)
+
    
  
 
