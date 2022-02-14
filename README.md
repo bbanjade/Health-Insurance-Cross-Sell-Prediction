@@ -46,13 +46,13 @@ df.describe()
 
 # Group numeric and categoric variables into separate tables
 
-df_cat = df[['Gender','Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage']]
-df_num = df[['Response','Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel']]
+#### df_cat = df[['Gender','Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage']]
+#### df_num = df[['Response','Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel']]
 
-for i in df_num.columns:
-    plt.hist(df_num[i])
-    plt.title(i)
-    plt.show()
+#### for i in df_num.columns:
+####     plt.hist(df_num[i])
+####     plt.title(i)
+####     plt.show()
  ![image](https://user-images.githubusercontent.com/48388697/153887040-06246cdc-e295-4cbc-860e-5bd6a220b2e3.png)
    
  
