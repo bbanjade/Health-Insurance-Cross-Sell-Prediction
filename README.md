@@ -34,4 +34,29 @@
 #### df.head()
 ![image](https://user-images.githubusercontent.com/48388697/153886397-bec1ec76-7338-4eb5-ac83-4e6e4d9615d8.png)
 
+1. Exploratory Data Analysis
+# get a summary of the dataset 
+
+df.info()
+![image](https://user-images.githubusercontent.com/48388697/153886837-54c88166-565f-4618-bfa9-567fda1b8269.png)
+# Display summary statistics in a table
+
+df.describe()
+![image](https://user-images.githubusercontent.com/48388697/153886898-51abafda-2bea-45ad-b5ed-23fc38f94af6.png)
+
+# Group numeric and categoric variables into separate tables
+
+df_cat = df[['Gender','Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage']]
+df_num = df[['Response','Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel']]
+
+for i in df_num.columns:
+    plt.hist(df_num[i])
+    plt.title(i)
+    plt.show()
+ ![image](https://user-images.githubusercontent.com/48388697/153887040-06246cdc-e295-4cbc-860e-5bd6a220b2e3.png)
+   
+ 
+
+
+
 
