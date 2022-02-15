@@ -49,12 +49,10 @@
 ##### df_cat = df[['Gender','Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage']]
 ##### df_num = df[['Response','Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel']]
 
-#### for i in df_num.columns:
-####    plt.hist(df_num[i])
-####    plt.title(i)
-####    plt.show()
- ![image](https://user-images.githubusercontent.com/48388697/153887040-06246cdc-e295-4cbc-860e-5bd6a220b2e3.png)
- ![image](https://user-images.githubusercontent.com/48388697/153887508-4258b752-de34-4d7d-b48c-2101f8928428.png)
+![image](https://user-images.githubusercontent.com/48388697/153985176-fbac37f9-3049-49de-b2bc-1ef4ae9966ff.png)
+
+![image](https://user-images.githubusercontent.com/48388697/153887040-06246cdc-e295-4cbc-860e-5bd6a220b2e3.png)
+![image](https://user-images.githubusercontent.com/48388697/153887508-4258b752-de34-4d7d-b48c-2101f8928428.png)
 ![image](https://user-images.githubusercontent.com/48388697/153887539-97fda65c-b6a5-468d-8cf3-da1d80e692da.png)
 ![image](https://user-images.githubusercontent.com/48388697/153887569-e62d3ba7-bf01-4b05-bc59-c4d4bf5e70bc.png)
 ![image](https://user-images.githubusercontent.com/48388697/153887588-d26a2315-c3c5-49d6-bb0c-990aa183473a.png)
@@ -78,9 +76,8 @@
 ##### pd.pivot_table(df, index='Response', values=['Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel'])
 ![image](https://user-images.githubusercontent.com/48388697/153888281-4920ad53-b2a6-4e23-91b2-4d905c62e618.png)
 
-##### for i in df_cat.columns:
-#####    sns.barplot(df_cat[i].value_counts().index,df_cat[i].value_counts()).set_title(i)
-#####    plt.show()
+![image](https://user-images.githubusercontent.com/48388697/153985099-0f08bc27-7a8c-47a9-a0e8-6d2730feeb9a.png)
+
     
 ![image](https://user-images.githubusercontent.com/48388697/153888359-e42b4685-7e17-461f-8f04-761d0e99a600.png)
 ![image](https://user-images.githubusercontent.com/48388697/153888383-1bced7a9-7c69-4419-a884-a704a01dcbc0.png)
@@ -91,9 +88,8 @@
 #### Lets see if outliers is a problem in our data
 
 ##### for i in df_num.columns:
-#####     sns.boxplot(df_num[i])
-#####     plt.title(i)
-#####     plt.show()
+![image](https://user-images.githubusercontent.com/48388697/153985052-aa40c87d-139b-46dd-9306-3e28bfc3879d.png)
+
 ![image](https://user-images.githubusercontent.com/48388697/153888586-a64ced28-516a-482a-9a1f-5685c2994c2d.png)
 ![image](https://user-images.githubusercontent.com/48388697/153888639-c394c8f2-f1e5-497b-8260-c8e67a2c0b0c.png)
 ![image](https://user-images.githubusercontent.com/48388697/153888671-d99521e0-b872-4551-a28f-798ceceffdbe.png)
@@ -254,8 +250,7 @@
 ##### pred_gbrt = gbrt.predict(X_test)
 
 ##### print("gradient boosting ClassificationReport")
-##### print(classification_report(y_test, pred_gbrt,
-                            target_names=["1", "0"]))
+##### print(classification_report(y_test, pred_gbrt, target_names=["1", "0"]))
 
 ![image](https://user-images.githubusercontent.com/48388697/153890213-999dd373-cdc8-46b0-a6a4-52469bd4cd16.png)
 
