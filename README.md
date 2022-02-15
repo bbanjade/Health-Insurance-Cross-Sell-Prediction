@@ -1,9 +1,9 @@
 # Health-Insurance-Cross-Sell-Prediction
 
-### Context
+### 1. Context
 #### Our client is an Insurance company, wants to increase its insurance sales by providing health insurance to the current auto insurance holder. They have some past data about demographics (gender, age, region code), Vehicles (Vehicle Age, Damage), Policty (Premium, sourcing channel), and their response to hold auto insurance. Based, on this data we need to create a model, that will predict customers will be willing to participate in purchasing health insurance in future. This project will visualize the provided data, create an algorithm that best represnt the data, and test the model in the test data.
 
-#### This project includes two parts: 1) Exploratory data analysis through visualization & 2) model building: data will be cleaned and prepared for modelling based on the visualizations.
+#### 2. This project includes two parts: 1) Exploratory data analysis through visualization & 2) model building: data will be cleaned and prepared for modelling based on the visualizations.
 
 #### Import all necessary models 
 
@@ -34,7 +34,7 @@
 ##### df.head()
 ![image](https://user-images.githubusercontent.com/48388697/153886397-bec1ec76-7338-4eb5-ac83-4e6e4d9615d8.png)
 
-### 1. Exploratory Data Analysis
+### 3. Exploratory Data Analysis
 #### get a summary of the dataset 
 
 ##### df.info()
@@ -44,7 +44,7 @@
 ##### df.describe()
 ![image](https://user-images.githubusercontent.com/48388697/153886898-51abafda-2bea-45ad-b5ed-23fc38f94af6.png)
 
-##### Group numeric and categoric variables into separate tables
+#### Group numeric and categoric variables into separate tables
 
 ##### df_cat = df[['Gender','Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage']]
 ##### df_num = df[['Response','Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel']]
@@ -71,7 +71,7 @@
 ##### plt.show()
 ![image](https://user-images.githubusercontent.com/48388697/153888136-d0928217-86f5-4308-9302-6fa32b0989e7.png)
 #### All the correlation coefficients are low, so the correlation is not a problem in our data.
-##### Find average values of variables based on response through pivot table
+#### Find average values of variables based on response through pivot table
 
 ##### pd.pivot_table(df, index='Response', values=['Age','Region_Code','Annual_Premium','Vintage','Policy_Sales_Channel'])
 ![image](https://user-images.githubusercontent.com/48388697/153888281-4920ad53-b2a6-4e23-91b2-4d905c62e618.png)
@@ -125,24 +125,24 @@
                 
 ![image](https://user-images.githubusercontent.com/48388697/153889223-8f4d7963-e6bb-4c68-96aa-fb29e69595a1.png)
 
-### 2. Model Building
-#### Outliers are not big problem, but lets remove rows which have annual_premium higher than 400,000. By, doing this we are only loosing 6 rows.
+### 4. Model Building
+#### 4.1. Outliers are not big problem, but lets remove rows which have annual_premium higher than 400,000. By, doing this we are only loosing 6 rows.
 
 ##### df1 = df[df['Annual_Premium'] < 400000]
 ##### df1.head()
 ![image](https://user-images.githubusercontent.com/48388697/153889410-96797c59-35c9-450e-bf3c-5644cc242475.png)
 
-#### Convert character variables into dummy variables
+#### 4.2. Convert character variables into dummy variables
 
 ##### df1 = pd.get_dummies(df1)
 ##### df1.head()
 ![image](https://user-images.githubusercontent.com/48388697/153889537-331d5a74-e699-4a9a-874a-f52f20d1a5d8.png)
 
-#### drop id, we don't have use of this column
+#### 4.3. drop id, we don't have the use of this column
 
 ##### df1 = df1.drop('id', axis = 1)
 
-#### pepare for model
+#### 4.4. Lets prepare our data for model/algorithms
 
 ##### X = df1.drop(['Response'], axis=1)
 ##### y = df1['Response']
@@ -150,25 +150,25 @@
 ##### print(y.shape)
 
 ![image](https://user-images.githubusercontent.com/48388697/153889615-2f940458-59bd-4cd5-883d-f9c46b3a52c9.png)
-#### Split the data into train-test sets.
+#### 4.4.1. Split the data into train-test sets.
 
 ##### X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 #### Lets run three algorithms (LogisticRegression, Random Forest, and GradientBoosting) based on the extent of data and simplicity and effectiveness for the models.
 
-#### LogisticRegression
+#### 4.5. LogisticRegression
 ##### logreg = LogisticRegression(C=1).fit(X_train, y_train)
 
 ##### print("logreg Training set score: {:.3f}".format(logreg.score(X_train, y_train)))
 ##### print("logreg Test set score: {:.3f}".format(logreg.score(X_test, y_test)))
 
-#### RandomForestClassifier
+#### 4.6. RandomForestClassifier
 ##### forest = RandomForestClassifier(n_estimators=100, random_state=0)
 ##### forest.fit(X_train, y_train)
 
 ##### print("forest Accuracy on training set: {:.3f}".format(forest.score(X_train, y_train)))
 ##### print("forest Accuracy on test set: {:.3f}".format(forest.score(X_test, y_test)))
 
-#### GradientBoostingClassifier
+#### 4.7. GradientBoostingClassifier
 ##### gbrt = GradientBoostingClassifier(random_state=0, learning_rate=0.01)
 ##### gbrt.fit(X_train, y_train)
 
@@ -179,7 +179,7 @@
 
 #### Based on accuracy score, the training and test scores are closer for logistic regression and gradient boosting, the randomFirest presented 1 training score and 0.867 test score representing overfitted model. So, based on accuracy score LogisticRegression and Gradient Bossting are better than Random Forest. But, our data is imbalanced, people who are willing to have health insurance are lower than who don' want. So lets try other metrics that gives us more confident to evaluate the chosen models.
 
-#### Grid Search
+#### 4.8. Grid Search
 #### Lets use Grid Search to find the best parameters that improve the effective of the models.
 
 ##### from sklearn.model_selection import GridSearchCV
@@ -207,7 +207,7 @@
 
 ![image](https://user-images.githubusercontent.com/48388697/153889941-b39a5297-1b73-4c60-b229-3ece13be7040.png)
 
-#### now use the best parameters in RandomFirest Classifier.
+#### 4.9 now use the best parameters in RandomFirest Classifier.
 
 ##### forest = RandomForestClassifier(bootstrap = True, max_depth = 80, max_features = 2, min_samples_leaf = 5, min_samples_split = 10, n_estimators = 300)
 
@@ -219,7 +219,7 @@
 ![image](https://user-images.githubusercontent.com/48388697/153890015-f69fa9a1-58e2-4a5e-a5ca-3d6ced79a7b3.png)
 #### Grid search improved the traning-test accuracy score, so removing the overfitting model previously identified.
 
-#### grid search for logistic regression
+#### 4.10. grid search for logistic regression
 
 ##### logreg = LogisticRegression()
 ##### grid_values = {'penalty': ['l1', 'l2'], 'C': [0.001, 0.009, 0.01, 0.09, 1, 5, 10, 25]}
@@ -227,7 +227,7 @@
 ##### grid_logreg.fit(X_train, y_train)
 ![image](https://user-images.githubusercontent.com/48388697/153890124-91d0c622-4728-4b35-99c8-1b962e2025f0.png)
 
-#### Lets create classification report for three models
+#### 4.11. Lets create classification report for three models
 
 ##### from sklearn.metrics import classification_report
 
