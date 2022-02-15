@@ -254,7 +254,7 @@
 
 ![image](https://user-images.githubusercontent.com/48388697/153890213-999dd373-cdc8-46b0-a6a4-52469bd4cd16.png)
 
-#### Our main interest is to find people with response 1, and capture all the possible 1 response. So Recall is the most important number. All three models LogisticRegression, RandomForest, & GradientBoosting have high in recall, precision values, and f1 scores. All three models have similar values. all of these models are good. We can choose logistic regression due to easy and fast to run the model.
+#### Our main interest is to find people with response 1, and capture all the possible 1 response (i.e., people buying health insurance). So Recall is the most important number. All three models LogisticRegression, RandomForest, & GradientBoosting have high in recall, precision values, and f1 scores. All three models have similar values. All of these models are good. We can choose logistic regression due to easy and fast to run the model.
 
 
 
