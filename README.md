@@ -108,7 +108,7 @@
                 
 ![image](https://user-images.githubusercontent.com/48388697/153889223-8f4d7963-e6bb-4c68-96aa-fb29e69595a1.png)
 
-#### people with damage vehicle has higher intention to by auto insurance.
+#### People with damage vehicle has higher intention to by auto insurance.
 
 ### 4. Model Building
 #### 4.1. Outliers are not big problem, but lets remove rows which have annual_premium higher than 400,000. By, doing this we are only loosing 6 rows.
@@ -194,7 +194,7 @@
 
 #### 4.9 now use the best parameters in RandomFirest Classifier.
 
-##### forest = RandomForestClassifier(bootstrap = True, max_depth = 80, max_features = 2, min_samples_leaf = 5, min_samples_split = 10, n_estimators = 300)
+##### forest = RandomForestClassifier(bootstrap = True, max_depth = 100, max_features = 2, min_samples_leaf = 5, min_samples_split = 8, n_estimators = 1000)
 
 ##### forest.fit(X_train, y_train)
 
