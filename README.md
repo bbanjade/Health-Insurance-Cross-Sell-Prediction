@@ -103,27 +103,12 @@
 ![image](https://user-images.githubusercontent.com/48388697/153888785-50ac0332-1485-4ba1-a80e-73e37325ca29.png)
 
 #### In our data, people around 30 and 80 years are more previously insured.
-
-#### Relationship between Vehicle Age vs Vehicle Damage
-
-##### sns.countplot(data=df,x='Vehicle_Age',hue='Vehicle_Damage')
-![image](https://user-images.githubusercontent.com/48388697/153888878-eb60e0c4-83c5-44fb-9d8f-9c182e1ea3d0.png)
-
-##### df1=df.groupby(['Vehicle_Age','Response'])['id'].count().to_frame().rename(columns={'id':'count'}).reset_index()
-##### df1
-
-![image](https://user-images.githubusercontent.com/48388697/153888943-5b2f2161-881c-473d-bf53-c35bc048f592.png)
-##### g = sns.catplot(x="Vehicle_Age", y="count",col="Response", data=df1, kind="bar", height=4, aspect=.7)
                 
-![image](https://user-images.githubusercontent.com/48388697/153889039-348b2134-3389-4986-b4b2-32218770350d.png)
-
-##### df2=df.groupby(['Vehicle_Damage','Response'])['id'].count().to_frame().rename(columns={'id':'count'}).reset_index()
-##### df2
-![image](https://user-images.githubusercontent.com/48388697/153889132-079735bb-2a52-4c29-a06a-ef1fab255e53.png)
-
 ##### g = sns.catplot(x="Vehicle_Damage", y="count",col="Response", data=df2, kind="bar",aspect=0.7)
                 
 ![image](https://user-images.githubusercontent.com/48388697/153889223-8f4d7963-e6bb-4c68-96aa-fb29e69595a1.png)
+
+#### people with damage vehicle has higher intention to by auto insurance.
 
 ### 4. Model Building
 #### 4.1. Outliers are not big problem, but lets remove rows which have annual_premium higher than 400,000. By, doing this we are only loosing 6 rows.
